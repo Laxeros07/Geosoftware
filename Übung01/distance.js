@@ -14,30 +14,58 @@ entfernungen.forEach((element) => {
 });
 
 /**
- * Berechnung der Distanz zw. 2 Punkten in WGS84
- *
- * @param {*} Punkt1
- * @param {*} Punkt2
- *
+ * @function twoPointDistance
+ * @desc takes two geographic points and returns the distance between them. Uses the Haversine formula (http://www.movable-type.co.uk/scripts/latlong.html, https://stackoverflow.com/questions/27928/calculate-distance-between-two-latitude-longitude-points-haversine-formula)
+ * @param start array of [lon, lat] coordinates
+ * @param end array of [lon, lat] coordinates
+ * @returns the distance between 2 points on the surface of a sphere with earth's radius
  */
+function berechneDistanz(start, end) {
+  //variable declarations
+  var earthRadius; //the earth radius in meters
+  var phi1;
+  var phi2;
+  var deltaLat;
+  var deltaLong;
 
-function berechneDistanz(Punkt1, Punkt2) {
-  let lon1 = Punkt1[0]; //Längengrad
-  let lat1 = Punkt1[1]; //und Breitengrad von Punkt 1
-  let lon2 = Punkt2[0]; //Längengrad
-  let lat2 = Punkt2[1]; //und Breitengrad von Punkt 2
+  var a;
+  var c;
+  var distance; //the distance in meters
 
-  const R = 6371e3; // metres
-  const φ1 = (lat1 * Math.PI) / 180; // φ, λ in radians
-  const φ2 = (lat2 * Math.PI) / 180;
-  const Δφ = ((lat2 - lat1) * Math.PI) / 180;
-  const Δλ = ((lon2 - lon1) * Math.PI) / 180;
+  //function body
+  earthRadius = 6371e3; //Radius
+  phi1 = toRadians(start[1]); //latitude at starting point. in radians.
+  phi2 = toRadians(end[1]); //latitude at end-point. in radians.
+  deltaLat = toRadians(end[1] - start[1]); //difference in latitude at start- and end-point. in radians.
+  deltaLong = toRadians(end[0] - start[0]); //difference in longitude at start- and end-point. in radians.
 
-  const a =
-    Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
-    Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  a =
+    Math.sin(deltaLat / 2) * Math.sin(deltaLat / 2) +
+    Math.cos(phi1) *
+      Math.cos(phi2) *
+      Math.sin(deltaLong / 2) *
+      Math.sin(deltaLong / 2);
+  c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  distance = earthRadius * c;
 
-  const d = R * c; // in metres
-  return d;
+  return distance;
+}
+/**
+ * @function toRadians
+ * @desc helping function, takes degrees and converts them to radians
+ * @returns a radian value
+ */
+function toRadians(degrees) {
+  var pi = Math.PI;
+  return degrees * (pi / 180);
+}
+
+/**
+ * @function toDegrees
+ * @desc helping function, takes radians and converts them to degrees
+ * @returns a degree value
+ */
+function toDegrees(radians) {
+  var pi = Math.PI;
+  return radians * (180 / pi);
 }

@@ -1,3 +1,9 @@
+document.title = "Uebung2";
+
+var metadaten = document.createElement("meta");
+metadaten.setAttribute("name", "author");
+metadaten.setAttribute("content", "Anne Staskiewicz");
+
 let element = document.getElementById("standort");
 
 var x = document.getElementById("demo");
@@ -36,5 +42,25 @@ function berechneAbstand() {
   poi.features.forEach((element) => {
     poiCoordinates.push(element.geometry.coordinates);
   });
+  var standort = JSON.parse(textfeld.value);
+  var standortCoordinates = standort.geometry.coordinates;
+
+  var abstand = [];
+  poiCoordinates.forEach((element) => {
+    abstand.push(berechneDistanz(element, standortCoordinates));
+  });
+
+  abstand.sort(function (a, b) {
+    return a - b;
+  });
+  document.getElementById("abstandPOI").innerHTML = "";
+  abstand.forEach((element) => {
+    document.getElementById("abstandPOI").innerHTML += "<p>" + element + "</p>";
+  });
+
   console.log(poiCoordinates);
+  console.log(standortCoordinates);
+  console.log(abstand);
+
+  console.log(berechneDistanz([51.9695313, 7.5955495], [51.969422, 7.595725]));
 }
