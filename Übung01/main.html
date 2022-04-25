@@ -5,6 +5,8 @@
      <meta name="Distance" content= "Distance Calculation">
      <script src="point.js"></script>
      <script src="cities.js"></script>
+     <script src="poi.js"></script>
+     
      <title>Uebung01</title>
  </head>
  <style>
@@ -16,12 +18,20 @@
 </style>
      <body>
        <h1>Distanzberechnung</h1>
+       <input id="textfeld" type="text"> 
+       
+       <button onclick="getLocation()">mein Standort</button>
+       <button onclick="berechneAbstand()">berechne</button>
+       </input>
        <p style="text-decoration: underline;">deutscher Städte zu Punkt:</p>
        <div id="berechnen"> </div>
        <p style="color: violet; text-align: right;">made with love</p>
      </body>
 
  <script src="distance.js"></script>
+ 
 
+<p id="demo"></p>
+<script src="location.js"></script>
 </html>
 
