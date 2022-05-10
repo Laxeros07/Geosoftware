@@ -50,8 +50,9 @@ function showPosition(position) {
     },
   });
 }
+
 /**
- * berechnet bzw sollte den Abstand zwischen meinem Standort und den POI berechnen
+ * berechnet den Abstand zwischen meinem Standort und den POI
  */
 function berechneAbstand() {
   var poiCoordinates = [];
