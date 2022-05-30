@@ -2,20 +2,10 @@
 
 <!DOCTYPE html>
  <head>
-     <meta name="Distance" content= "Distance Calculation">
      <script src="point.js"></script>
      <script src="cities.js"></script>
      <script src="poi.js"></script>
      <script src="bushaltestellen.js"></script>
-     
-
-     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-     <link rel="stylesheet" href="leaflet.css" />
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.css"/>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.js"></script>
-     <script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script>
-  
 
      <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,9 +19,8 @@
        p {color:rgb(41, 160, 164); 
        text-align: center;}
 </style>
-     <body d-flex flex-column min-vh-100>
+     <body>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-     
       <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,47 +42,34 @@
           </div>
         </div>
       </nav>
-     
-        
-        <div class="text-center"  class="card-body">
-          <h5 class="card-title">Geosoft ist toll!1!</h5>
-          <p class="card-text">Klick auf einen link ;]</p>
-          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target ="_blank" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
 
-  <!----
-       <h1>Distanzberechnung</h1>
+
+       <h1>Meine Distanz zu Sehenswürdigkeiten in Deutschland</h1>
+       <div class="col-lg-3 center-block"></div>
        <input id="textfeld" type="text"> 
        
-       <button onclick="getLocation()">mein Standort</button>
-       <button onclick="berechneAbstand()">berechne</button>
-       <button onclick="getBushalte()">Bushalte</button>
+       <button onclick="getLocation()">sag mir meinen Standort</button>
+       <button onclick="berechneAbstand()">gib mir Distanzen zu Sehenswürdigkeiten</button>
+
        <div id="abstandPOI"></div>
        <div id="zeitpunkt"></div>
        <div id="bushaltenUndDistanzen"></div>
+       </div>
        </input>
-       <p style="text-decoration: underline;">deutscher Städte zu Punkt:</p>
-       <div id="berechnen"> </div>
+       <p id="demo"></p>
        <p style="color: violet; text-align: right;">made with love</p>
 
-       <div id="map"></div>
-       <script src="leaflet.js"></script> 
-      -->
-      <p style="color: violet; text-align: right;">made with love</p>
-
-       <footer class="card text-center" class="mt-auto">
+       <footer class="card text-center">
         <li class="nav-item">
           <a class="nav-link" href="impressum.html">Impressum</a>
         </li>
       </footer>
+   
 
      </body>
-     
+    
  <script src="distance.js"></script>
  
-
-<p id="demo"></p>
 <script src="location.js"></script>
 </html>
 
